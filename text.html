@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>HM MODZ TEAM</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #111;
+      color: white;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .filter {
+      text-align: center;
+      margin: 1rem;
+    }
+    .filter button {
+      padding: 0.5rem 1rem;
+      margin: 0.2rem;
+      border: none;
+      background: #3498db;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .filter button:hover {
+      background: #2980b9;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .product {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,255,255,0.1);
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product h3 {
+      margin: 0.5rem 0;
+      color: #00ffcc;
+    }
+    .price {
+      font-weight: bold;
+      color: #0f0;
+    }
+    .btn {
+      background: #00cc66;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #00aa55;
+    }
+    .cart {
+      background: #222;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 10px;
+    }
+    .cart h2 {
+      margin-top: 0;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5rem 0;
+    }
+    .checkout {
+      background: #e67e22;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .checkout:hover {
+      background: #d35400;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>HM MODZ TEAM - Online Store</h1>
+</header>
+
+<div class="filter">
+  <button onclick="filterProducts('all')">Semua</button>
+  <button onclick="filterProducts('game')">Cheat Game</button>
+  <button onclick="filterProducts('tool')">Mod Tools</button>
+  <button onclick="filterProducts('pakaian')">Merch</button>
+</div>
+
+<div class="container" id="product-list">
+  <!-- Produk ditampilkan lewat JS -->
+</div>
+
+<div class="cart">
+  <h2>Keranjang Belanja</h2>
+  <div id="cart-items"></div>
+  <p><strong>Total: Rp<span id="total">0</span></strong></p>
+  <button class="checkout" onclick="checkout()">Checkout via WhatsApp</button>
+</div>
+
+<script>
+  const products = [
+    { name: "Free Fire Mod Menu", price: 150000, category: "game", image: "https://via.placeholder.com/200x150?text=FF+MOD+MENU" },
+    { name: "ESP + Auto Headshot", price: 200000, category: "game", image: "https://via.placeholder.com/200x150?text=ESP+HEADSHOT" },
+    { name: "PUBG Mobile Wallhack", price: 180000, category: "game", image: "https://via.placeholder.com/200x150?text=PUBG+HACK" },
+    { name: "Script Injector Tool", price: 100000, category: "tool", image: "https://via.placeholder.com/200x150?text=Injector+Tool" },
+    { name: "Anti-Ban Bypass V3", price: 120000, category: "tool", image: "https://via.placeholder.com/200x150?text=AntiBan+V3" },
+    { name: "HM MODZ Hoodie", price: 175000, category: "pakaian", image: "https://via.placeholder.com/200x150?text=Hoodie+HM+MODZ" }
+  ];
+
+  let cart = [];
+
+  function renderProducts(category = "all") {
+    const list = document.getElementById("product-list");
+    list.innerHTML = "";
+    const filtered = category === "all" ? products : products.filter(p => p.category === category);
+    filtered.forEach(product => {
+      const div = document.createElement("div");
+      div.className = "product";
+      div.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p class="price">Rp${product.price.toLocaleString()}</p>
+        <button class="btn" onclick="addToCart('${product.name}', ${product.price})">Tambah ke Keranjang</button>
+      `;
+      list.appendChild(div);
+    });
+  }
+
+  function filterProducts(cat) {
+    renderProducts(cat);
+  }
+
+  function addToCart(name, price) {
+    cart.push({ name, price });
+    updateCart();
+  }
+
+  function updateCart() {
+    const items = document.getElementById("cart-items");
+    items.innerHTML = "";
+    let total = 0;
+    cart.forEach((item, i) => {
+      const div = document.createElement("div");
+      div.className = "cart-item";
+      div.innerHTML = `<span>${item.name}</span><span>Rp${item.price.toLocaleString()} <button onclick="removeItem(${i})">X</button></span>`;
+      items.appendChild(div);
+      total += item.price;
+    });
+    document.getElementById("total").innerText = total.toLocaleString();
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  function checkout() {
+    if (cart.length === 0) {
+      alert("Keranjang kosong!");
+      return;
+    }
+    let message = "Halo HM MODZ TEAM, saya ingin membeli:\n";
+    let total = 0;
+    cart.forEach(item => {
+      message += `- ${item.name}: Rp${item.price.toLocaleString()}\n`;
+      total += item.price;
+    });
+    message += `\nTotal: Rp${total.toLocaleString()}`;
+    const waUrl = "https://wa.me/6285137060301?text=" + encodeURIComponent(message);
+    window.open(waUrl, "_blank");
+  }
+
+  // Tampilkan produk pertama kali
+  renderProducts();
+</script>
+
+</body>
+</html>
