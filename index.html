@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HM MODZ TEAM - Premium Game Mods & Tools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="loading-screen" id="loadingScreen">
+  <div class="loader"></div>
+</div>
+
+<header class="main-header">
+  <div class="header-content">
+    <div class="logo-container">
+      <img src="hm-cabul.png" alt="HM MODZ Logo" class="logo">
+      <div class="logo-text">
+        <h1>HM MODZ TEAM</h1>
+        <p>Premium Game Mods & Tools</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Cari produk...">
+        <button onclick="searchProducts()"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="filter-nav">
+  <div class="filter-container">
+    <button class="active" onclick="filterProducts('all')">
+      <i class="fas fa-border-all"></i> Semua
+    </button>
+    <button onclick="filterProducts('game')">
+      <i class="fas fa-gamepad"></i> Game Hack
+    </button>
+    <button onclick="filterProducts('tool')">
+      <i class="fas fa-tools"></i> Tools
+    </button>
+    <button onclick="filterProducts('design')">
+      <i class="fas fa-paint-brush"></i> Design
+    </button>
+  </div>
+</nav>
+
+<main>
+  <section class="featured-section">
+    <div class="featured-header">
+      <h2>Produk Unggulan</h2>
+      <p>Tool & Mod Premium Terbaik</p>
+    </div>
+    <div class="container" id="product-list">
+      <!-- Products will be loaded here -->
+    </div>
+  </section>
+</main>
+
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h2><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h2>
+    <button class="close-cart" onclick="toggleCart()">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <!-- Cart items will be loaded here -->
+  </div>
+  <div class="cart-footer">
+    <div class="total">
+      <span>Total:</span>
+      <span class="total-amount">Rp<span id="cartTotal">0</span></span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">
+      <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+    </button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<div class="notification" id="notification">
+  <i class="fas fa-check-circle"></i>
+  <span id="notificationText"></span>
+</div>
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Tentang HM MODZ</h3>
+      <p>Penyedia layanan modifikasi game dan tools premium terpercaya sejak 2020.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Kontak Kami</h3>
+      <p><i class="fab fa-whatsapp"></i> +62 851-3706-0301</p>
+      <p><i class="fas fa-envelope"></i> hmmodzvip@gmail.com</p>
+    </div>
+    <div class="footer-section">
+      <h3>Ikuti Kami</h3>
+      <div class="social-links">
+        <a href="https://www.instagram.com/hmvip_xrakers?igsh=ZTVvM3JoeGxmOTQ3"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@hmmodzteam"><i class="fab fa-youtube"></i></a>
+        <a href="http://t.me/hmmodzprojects"><i class="fab fa-telegram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 HM MODZ TEAM. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Loading screen
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      document.getElementById('loadingScreen').style.opacity = '0';
+      setTimeout(function() {
+        document.getElementById('loadingScreen').style.display = 'none';
+      }, 500);
+    }, 1000);
+  });
+
+  // Search functionality
+  function searchProducts() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const filteredProducts = products.filter(product => 
+      product.name.toLowerCase().includes(searchTerm) || 
+      product.description.toLowerCase().includes(searchTerm)
+    );
+    renderProducts('all', filteredProducts);
+  }
+
+  // Show notification
+  function showNotification(message) {
+    const notification = document.getElementById('notification');
+    const notificationText = document.getElementById('notificationText');
+    notificationText.textContent = message;
+    notification.classList.add('show');
+    setTimeout(() => {
+      notification.classList.remove('show');
+    }, 3000);
+  }
+
+  // Initialize tooltips
+  document.addEventListener('DOMContentLoaded', function() {
+    renderProducts();
+  });
+</script>
+</body>
+</html>
