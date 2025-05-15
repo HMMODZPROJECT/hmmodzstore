@@ -24,7 +24,7 @@ const products = [
     category: "game",
     image: "PubgMobile.jpg",
     description: "Hack PUBG terbaru dengan wallhack, aimbot, dan fitur premium lainnya",
-    features: ["Wallhack", "Aimbot", "Speed Hack", "No Recoil"]
+    features: ["Wallhack", "No Recoil", "hologram"]
   },
   { 
     id: 4,
@@ -47,7 +47,7 @@ const products = [
   { 
     id: 6,
     name: "Video Editor Pro",
-    price: 18000,
+    price: 28000,
     category: "design",
     image: "Editing.jpg",
     description: "Software editing video dengan efek premium dan transisi profesional",
@@ -60,7 +60,7 @@ const products = [
     category: "tool",
     image: "Ransomware.jpg",
     description: "Tool enkripsi data dengan teknologi terkini dan keamanan maksimal",
-    features: ["Strong Encryption", "Secure Key", "File Lock", "Data Protection"]
+    features: ["Strong Encryption", "Anti Crack", "File Lock", "Data Protection"]
   }
 ];
 
