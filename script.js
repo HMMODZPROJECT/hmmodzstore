@@ -2,7 +2,7 @@ const products = [
   { 
     id: 1,
     name: "Injection Device Pro",
-    price: 350000,
+    price: 35000,
     category: "game",
     image: "InjectionDevice.jpg",
     description: "Tool injeksi premium dengan fitur anti-detect dan bypass security terbaru",
@@ -11,7 +11,7 @@ const products = [
   { 
     id: 2,
     name: "FC Mobile Auto Win",
-    price: 250000,
+    price: 25000,
     category: "game",
     image: "FcMobile.jpg",
     description: "Script auto win untuk FC Mobile dengan win rate 90%+ dan fitur custom",
@@ -20,7 +20,7 @@ const products = [
   { 
     id: 3,
     name: "PUBG Mobile Hack V5",
-    price: 280000,
+    price: 28000,
     category: "game",
     image: "PubgMobile.jpg",
     description: "Hack PUBG terbaru dengan wallhack, aimbot, dan fitur premium lainnya",
@@ -29,7 +29,7 @@ const products = [
   { 
     id: 4,
     name: "Android Optimizer Pro",
-    price: 150000,
+    price: 15000,
     category: "tool",
     image: "OptimalAndroid.jpg",
     description: "Tool optimasi Android untuk gaming dengan performa maksimal",
@@ -38,7 +38,7 @@ const products = [
   { 
     id: 5,
     name: "Design Picture Premium",
-    price: 200000,
+    price: 20000,
     category: "design",
     image: "Editing.jpg",
     description: "Layanan design grafis profesional untuk kebutuhan visual Anda",
@@ -47,7 +47,7 @@ const products = [
   { 
     id: 6,
     name: "Video Editor Pro",
-    price: 180000,
+    price: 18000,
     category: "design",
     image: "Editing.jpg",
     description: "Software editing video dengan efek premium dan transisi profesional",
