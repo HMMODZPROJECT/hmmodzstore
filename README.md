@@ -1,8 +1,7 @@
-hmmodz Store
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>HM MODZ TEAM</title>
+  <title>ONLINE SHOP HM MODZ</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -103,14 +102,14 @@ hmmodz Store
 <body>
 
 <header>
-  <h1>HM MODZ TEAM - Online Store</h1>
+  <h1>HM MODZ STORE</h1>
 </header>
 
 <div class="filter">
-  <button onclick="filterProducts('all')">Semua</button>
+  <button onclick="filterProducts('all')">All Produk</button>
   <button onclick="filterProducts('game')">Cheat Game</button>
   <button onclick="filterProducts('tool')">Mod Tools</button>
-  <button onclick="filterProducts('pakaian')">Merch</button>
+  <button onclick="filterProducts('Cheat Pc')">Cheat Pc</button>
 </div>
 
 <div class="container" id="product-list">
@@ -131,7 +130,7 @@ hmmodz Store
     { name: "PUBG Mobile Wallhack", price: 180000, category: "game", image: "https://via.placeholder.com/200x150?text=PUBG+HACK" },
     { name: "Script Injector Tool", price: 100000, category: "tool", image: "https://via.placeholder.com/200x150?text=Injector+Tool" },
     { name: "Anti-Ban Bypass V3", price: 120000, category: "tool", image: "https://via.placeholder.com/200x150?text=AntiBan+V3" },
-    { name: "HM MODZ Hoodie", price: 175000, category: "pakaian", image: "https://via.placeholder.com/200x150?text=Hoodie+HM+MODZ" }
+    { name: "Script God Mode Resident", price: 175000, category: "pakaian", image: "https://via.placeholder.com/200x150?text=Script+God+Mode+Resident" }
   ];
 
   let cart = [];
