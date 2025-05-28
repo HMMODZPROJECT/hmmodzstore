@@ -29,7 +29,7 @@ const products = [
   { 
     id: 4,
     name: "Android Optimizer Pro",
-    price: 15000,
+    price: 25000,
     category: "tool",
     image: "OptimalAndroid.jpg",
     description: "Tool optimasi Android untuk gaming dengan performa maksimal",
