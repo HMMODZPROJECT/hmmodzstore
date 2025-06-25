@@ -20,7 +20,7 @@ const products = [
   { 
     id: 3,
     name: "PUBG Mobile Hack V5",
-    price: 28000,
+    price: 30000,
     category: "game",
     image: "PubgMobile.jpg",
     description: "Hack PUBG terbaru dengan wallhack, aimbot, dan fitur premium lainnya",
