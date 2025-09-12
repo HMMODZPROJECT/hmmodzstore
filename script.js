@@ -255,7 +255,7 @@ function checkout() {
   message += `\n*Total: Rp${total.toLocaleString()}*\n`;
   message += "\n💬 Mohon konfirmasi pesanan saya";
 
-  const waURL = `https://t.me/hmmodz403=${encodeURIComponent(message)}`;
+  const waURL = `https://wa.me/+6287852411934=${encodeURIComponent(message)}`;
   window.open(waURL, '_blank');
 }
 
