@@ -55,12 +55,12 @@ const products = [
   },
   { 
     id: 7,
-    name: "Ransomware Encoder",
+    name: "Ransonware apps",
     price: 45000,
     category: "tool",
     image: "Ransomware.jpg",
-    description: "Tool enkripsi data dengan teknologi terkini dan keamanan maksimal",
-    features: ["Strong Encryption", "Anti Crack", "File Lock", "Data Protection"]
+    description: "aplikasi dengan system malware attack system yang merusak system Android",
+    features: ["Destroy System", "No Encryption", "File Lock", "Data Deleted"]
   }
 ];
 
