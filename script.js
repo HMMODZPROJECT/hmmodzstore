@@ -248,17 +248,19 @@ function checkout() {
 
   cart.forEach(item => {
     message += `▪️ *${item.name}*\n`;
-    message += `   💰 Rp${item.price.toLocaleString()}\n\n`;
+    message += `   💰 Rp${item.price.toLocaleString()} x ${item.quantity}\n\n`;
     total += item.price * item.quantity;
   });
 
   message += `\n*Total: Rp${total.toLocaleString()}*\n`;
-  message += "\n💬 Mohon konfirmasi pesanan saya";
+  message += "\n💬 Mohon konfirmasi pesanan saya.";
 
-  const phoneNumber = "6285137060301"; // tanpa tanda + atau spasi
-const message = "Halo, saya tertarik dengan produk Anda!";
-const waURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-window.open(waURL, '_blank');
+  // Nomor WA tujuan
+  const phoneNumber = "6285137060301";
+
+  const waURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  window.open(waURL, '_blank');
 }
 
 
