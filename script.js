@@ -255,8 +255,10 @@ function checkout() {
   message += `\n*Total: Rp${total.toLocaleString()}*\n`;
   message += "\n💬 Mohon konfirmasi pesanan saya";
 
-  const waURL = `https://wa.me/+6285137060301=${encodeURIComponent(message)}`;
-  window.open(waURL, '_blank');
+  const phoneNumber = "6285137060301"; // tanpa tanda + atau spasi
+const message = "Halo, saya tertarik dengan produk Anda!";
+const waURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+window.open(waURL, '_blank');
 }
 
 
