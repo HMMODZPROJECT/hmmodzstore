@@ -242,7 +242,7 @@ function checkout() {
     showNotification('❌ Keranjang belanja kosong');
     return;
   }
-
+  
   let message = "🛒 *Order HM MODZ TEAM*\n\n";
   let total = 0;
 
@@ -255,14 +255,18 @@ function checkout() {
   message += `\n*Total: Rp${total.toLocaleString()}*\n`;
   message += "\n💬 Mohon konfirmasi pesanan saya.";
 
-  // Nomor WA tujuan
   const phoneNumber = "6285137060301";
 
-  const waURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const encodedMsg = encodeURIComponent(message);
+  const appURL = `whatsapp://send?phone=${phoneNumber}&text=${encodedMsg}`;
+  const webURL = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
 
-  window.open(waURL, '_blank');
+  window.location.href = appURL;
+
+  setTimeout(() => {
+    window.open(webURL, '_blank');
+  }, 1000);
 }
-
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && isCartOpen) {
